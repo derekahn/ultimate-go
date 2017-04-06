@@ -138,7 +138,11 @@ empty struct `struct{}`; you could create billion vals with 0 allocation.
 - rule thumb: variable reciever should be shorter than 3 characters
 
 ### NO NO! Don't mix value and pointer semantics. example:
-
+```go
+func changeName(u *user, name string) {
+	u.name = name
+}
+```
 ### WHEN IN DOUBT USE POINTER SEMANTICS, except with time
 
 - Your factory functions dictates semantic consistency.
