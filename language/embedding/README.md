@@ -1,3 +1,15 @@
+## Embedding
+
+Embedding types provides the final piece of sharing and reusing state and behavior between types. Through the use of inner type promotion, an inner type's fields and methods can be directly accessed by references of the outer type.
+
+## Notes
+
+* Embedding types allows us to share state or behavior between types.
+* The inner type never loses its identity.
+* This is not inheritance.
+* Through promotion, inner type fields and methods can be accessed through the outer type.
+* The outer type can override the inner type's behavior.
+
 ### Exercise 1
 
 Copy the code from the template. Declare a new type called hockey which embeds the sports type. Implement the matcher interface for hockey. When implementing the match method for hockey, call into the match method for the embedded sport type to check the embedded fields first. Then create two hockey values inside the slice of matchers and perform the search.

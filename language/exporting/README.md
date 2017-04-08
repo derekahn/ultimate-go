@@ -1,3 +1,14 @@
+## Exporting
+
+Packages contain the basic unit of compiled code. They define a scope for the identifiers that are declared within them. Exporting is not the same as public and private semantics in other languages. But exporting is how we provide encapsulation in Go.
+
+## Notes
+
+* Code in go is complied into packages and then linked together.
+* Identifiers are exported (or remain unexported) based on letter-case.
+* We import packages to access exported identifiers.
+* Any package can use a value of an unexported type, but this is annoying to use.
+
 ### Exercise 1
 **Part A** Create a package named toy with a single exported struct type named Toy. Add the exported fields Name and Weight. Then add two unexported fields named onHand and sold. Declare a factory function called New to create values of type toy and accept parameters for the exported fields. Then declare methods that return and update values for the unexported fields.
 

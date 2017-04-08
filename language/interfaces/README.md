@@ -1,3 +1,13 @@
+## Functions
+
+Functions are at the core of the language. They provide a mechanism to group and organize our code to separate and distinct pieces of functionality. They can be used to provide an API to the packages we write and are a core component to concurrency.
+
+## Notes
+
+* Functions can return multiple values and most return an error value.
+* The error value should always be checked as part of the programming logic.
+* The blank identifier can be used to ignore return values.
+
 ### Exercise 1
 
 **Part A** Declare an interface named speaker with a method named speak. Declare a struct named english that represents a person who speaks english and declare a struct named chinese for someone who speaks chinese. Implement the speaker interface for each struct using a value receiver and these literal strings "Hello World" and "你好世界". Declare a variable of type speaker and assign the address of a value of type english and call the method. Do it again for a value of type chinese.

@@ -1,3 +1,16 @@
+## Constants
+
+Constants are a way to create a named identifier whose value can never change. They also provide an incredible amount of flexibility to the language. The way constants are implemented in Go is very unique.
+
+## Notes
+
+* Constants are not variables.
+* They existing only at compilation.
+* Untyped constants can be implictly converted where typed constants and variables can't.
+* Think of untyped constants as having a Kind, not a Type.
+* Learn about explicit and implicit conversions.
+* See the power of constants and their use in the standard library.
+
 ### Exercise 1
 
 **Part A:** Declare an untyped and typed constant and display their values.

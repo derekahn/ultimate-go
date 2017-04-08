@@ -1,3 +1,13 @@
+## Maps
+
+Maps provide a data structure that allow for the storage and management of key/value pair data.
+
+## Notes
+
+* Maps provide a way to store and retrieve key/value pairs.
+* The map key must be a value that can be used in an assignment statement.
+* Iterating over a map is always random.
+
 ### Exercise 1
 
 Declare and make a map of integer values with a string as the key. Populate the map with five values and iterate over the map to display the key/value pairs.
