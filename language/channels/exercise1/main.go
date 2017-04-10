@@ -25,13 +25,13 @@ func main() {
 
 	// Launch the goroutine and handle Done.
 	go func() {
-		goroutine("first routine", ch)
+		goroutine("FIRST ROUTINE", ch)
 		wg.Done()
 	}()
 
 	// Launch the goroutine and handle Done.
 	go func() {
-		goroutine("second routine", ch)
+		goroutine("SECOND ROUTINE", ch)
 		wg.Done()
 	}()
 
@@ -49,7 +49,7 @@ func goroutine(title string, signal chan int) {
 		// If the channel was closed, return.
 		value, ok := <-signal
 		if !ok {
-			fmt.Printf("%+v\n", title)
+			fmt.Printf("run %+v", title)
 			return
 		}
 
@@ -57,7 +57,7 @@ func goroutine(title string, signal chan int) {
 		fmt.Printf("%s signaling %d\n\n", title, value)
 
 		// Terminate when the value is 10.
-		if value == 100 {
+		if value == 10 {
 			fmt.Printf("CLOSED %+v\n", title)
 			close(signal)
 			return
