@@ -5,6 +5,47 @@ Write a program that uses a fan out pattern to generate 100 random numbers concu
 [Answer](exercises/exercise2/exercise2.go) ([Go Playground](http://play.golang.org/p/Li7hl3pOSu))
 
 Solution:
-```
+```go
+package main
 
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+const (
+	goroutines = 100
+)
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
+func main() {
+
+	// Create the buffer channel with a buffer for
+	// each goroutine to be created.
+	values := make(chan int, goroutines)
+
+	// Iterate and launch each goroutine.
+	for gr := 0; gr < goroutines; gr++ {
+
+		// Create an anonymous function for each goroutine that
+		// generates a random number and sends it on the channel.
+		go func() {
+			values <- rand.Intn(1000)
+		}()
+	}
+
+	// Create a variable to be used to track received messages.
+	// Set the value to the number of goroutines created.
+	wait := goroutines
+
+	// Iterate receiving each value until they are all received.
+	for wait > 0 {
+		fmt.Println(wait, <-values)
+		wait--
+	}
+}
 ```

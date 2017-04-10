@@ -10,27 +10,45 @@
 package main
 
 // Add imports.
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 // Declare constant for number of goroutines .
+const (
+	goroutines = 100
+)
 
 func init() {
 	// Seed the random number generator.
+	rand.Seed(time.Now().UnixNano())
 }
 
 func main() {
 
 	// Create the buffer channel with a buffer for
 	// each goroutine to be created.
+	ch := make(chan int, goroutines)
 
 	// Iterate and launch each goroutine.
-	{
+	for g := 0; g < goroutines; g++ {
 
 		// Create an anonymous function for each goroutine that
 		// generates a random number and sends it on the channel.
+		go func() {
+			ch <- rand.Intn(100)
+		}()
 	}
 
 	// Create a variable to be used to track received messages.
 	// Set the value to the number of goroutines created.
+	wait := goroutines
 
 	// Iterate receiving each value until they are all received.
+	for wait > 0 {
+		fmt.Printf("Wait: %+v, value: %+v\n", wait, <-ch)
+		wait--
+	}
 }
