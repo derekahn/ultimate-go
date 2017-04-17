@@ -44,7 +44,7 @@ data segment, stack (1mb), heap
 - pointer variables = * ponter type's name; always stores memory addresses;  all allocate the same amount of memory 4 || 8 bytes.
 - Read and write to the value that the address points to.
 
-- escape analysis (algorithm): Asks can we keep this value on this value on the stack frame for this fn? If shared unsafely it moves to heap; get to maintain value semantics or pointer semantics.
+- escape analysis (algorithm): Asks can we keep this value on the stack frame for this fn? If shared unsafely it moves to heap; get to maintain value semantics or pointer semantics.
 
 - sharing down the call stack doesn't create an allocation to the heap.
 - sharing a value up the call stack `return &u`; it's on the heap.
